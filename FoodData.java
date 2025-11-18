@@ -12,8 +12,6 @@ public class FoodData {
         String [] header = sc.nextLine().split(",");
         int ageIndex = 4;
         int drinkIndex = 6;
-        // ArrayList<Double> juiceWins = new ArrayList<>();
-        // ArrayList<Double> nonJuiceWins = new ArrayList<>();
         double juiceWins = 0;
         double nonJuiceWins = 0;
         double counter = 0;
@@ -21,13 +19,11 @@ public class FoodData {
         while (sc.hasNextLine()) {
             ArrayList<String> line = new ArrayList<>(Arrays.asList(sc.nextLine().split(",")));
             if (Double.parseDouble(line.get(ageIndex)) <  40 && line.get(drinkIndex).equals("Fresh Juice")) {
-                // juiceWins.add(String.parseString(line.get(drinkIndex)));
                 juiceWins ++;
                 counter ++;
 
             }
             else {
-                // nonJuiceWins.add(String.parseDouble(line.get(drinkIndex)));
                 nonJuiceWins ++;
                 counter ++;
             }
@@ -36,13 +32,11 @@ public class FoodData {
         double juiceAvg = juiceWins/counter;
         double nonJuiceAvg = nonJuiceWins/counter;
         if (juiceAvg > nonJuiceAvg) {
-            System.out.println("Around " + juiceAvg + " of people under the age of 40 DO prefer fresh juice");
-            System.out.println("That is more than people under the age of 40 who DO NOT prefer juice which is around " + nonJuiceAvg);
+            System.out.println(String.format("People under the age of 40 are more likely to prefer juice being around %.2f%s", (juiceAvg*100), "%"));
 
         }
         else {
-            System.out.println("Around " + nonJuiceAvg + " of people under the age of 40 DO NOT prefer fresh juice");
-            System.out.println("That is more than people under the age of 40 who DO prefer juice which is around " + juiceAvg);
+            System.out.println(String.format("People under the age of 40 are more likely to prefer juice being around %.2f%s", (nonJuiceAvg*100), "%"));
         }
 
         
